@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
 function App() {
-  const [time, setTime] = useState(0); // Time in seconds
-  const [isRunning, setIsRunning] = useState(false); // To track if stopwatch is running
+  const [time, setTime] = useState(0); 
+  const [isRunning, setIsRunning] = useState(false); 
 
   const startHandler = () => {
     if (!isRunning) {
@@ -28,12 +28,12 @@ function App() {
     clearInterval(intervalId); // Stop the interval if running
   };
 
-  const [intervalId, setIntervalId] = useState(null); // Track interval ID for stopping
+  const [intervalId, setIntervalId] = useState(null); 
 
   return (
     <div>
       <h1>Stopwatch</h1>
-      <h2>{time} seconds</h2> {/* Display time in seconds */}
+      <h2>{time} seconds</h2>
       <button onClick={startHandler} disabled={isRunning}>Start</button>
       <button onClick={stopHandler} disabled={!isRunning}>Stop</button>
       <button onClick={resetHandler}>Reset</button>
