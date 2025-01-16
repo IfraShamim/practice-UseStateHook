@@ -3,14 +3,14 @@ import { useState } from 'react';
 function App() {
   const [time, setTime] = useState(0); 
   const [isRunning, setIsRunning] = useState(false); 
+  const [intervalId, setIntervalId] = useState(null); 
 
   const startHandler = () => {
     if (!isRunning) {
       setIsRunning(true);
       const interval = setInterval(() => {
-        setTime((prevTime) => prevTime + 1); // Increase time by 1 second
+        setTime((prevTime) => prevTime + 1);
       }, 1000);
-      // Store the interval ID in the state
       setIntervalId(interval);
     }
   };
@@ -18,17 +18,15 @@ function App() {
   const stopHandler = () => {
     if (isRunning) {
       setIsRunning(false);
-      clearInterval(intervalId); // Stop the interval
+      clearInterval(intervalId);
     }
   };
 
   const resetHandler = () => {
     setIsRunning(false);
-    setTime(0); // Reset time to 0
-    clearInterval(intervalId); // Stop the interval if running
+    setTime(0); 
+    clearInterval(intervalId); 
   };
-
-  const [intervalId, setIntervalId] = useState(null); 
 
   return (
     <div>
